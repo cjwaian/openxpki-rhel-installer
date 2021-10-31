@@ -12,22 +12,26 @@ Built and tested on:
 
 
 #### Perl Dependenices
-Took as many deps from RHEL/EPEL rpms as possible and the rest from CPAN. Struggled with this, but the list provided works.
+Took as many [deps from RHEL/EPEL](01_rhel_perl-deps.sh) rpms as possible and the [rest from CPAN](02_cpan_perl-deps.sh). Struggled with this, but the list provided works.
   
 
 #### Security Policies
-The default umask 027 causes some of the Perl modules installed via CPAN or along with openxpki-core to have incorrect permissions.
+The default umask 027 causes some of the Perl modules installed via CPAN or along with openxpki-core [to have incorrect permissions](03_openxpki-core.sh#L57).
 
 
 #### FIPS mode
-[LibSCEP](https://github.com/Javex/libscep.git) and the [Crypt::LibSCEP](https://metacpan.org/pod/Crypt::LibSCEP) do not pass tests due to FIPS mode:
+LibSCEP and the Crypt::LibSCEP [do not pass tests](10_libscep.sh) due to FIPS mode:
 
 `digital envelope routines:EVP_DigestInit_ex:disabled for FIPS:crypto/evp/digest.c`
 
 
 #### SELinux
-`setsebool -P httpd_can_network_connect on`
+Keep SELinux enabled but configure to [permit http & fcgi to write to log files and socket](00_prep_system.sh#L77).
 
+HTTP/S:
+ `setsebool -P httpd_can_network_connect on`
+ 
+ Log & Socket:
 |type|file|
 | :------------ | :------------ |
 |httpd_sys_script_ra_t|webui.log|
