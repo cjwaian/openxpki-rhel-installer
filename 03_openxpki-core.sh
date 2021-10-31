@@ -59,13 +59,11 @@ systemctl daemon-reload;
 # with the execute priv, this is a sledge hammer fix
 
 # RHEL Default INSTALLPRIVLIB
-# Redirect INSTALLSITELIB here (OpenXPKI perl modules)
 chown -f -R root:root /usr/share/perl5/;
 chmod -f 755 $(find /usr/share/perl5 -type d);
 chmod -f 644 $(find /usr/share/perl5 -type f);
 
 # RHEL Default INSTALLARCHLIB
-# Redirect INSTALLSITEARCH here  (some CPAN stuff)
 chown -f -R root:root /usr/lib64/perl5;
 chmod -f 755 $(find /usr/lib64/perl5 -type d);
 chmod -f 644 $(find /usr/lib64/perl5 -type f);
