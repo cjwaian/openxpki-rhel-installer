@@ -1,5 +1,5 @@
 # OpenXPKI Installer for RHEL
-##### Whiterabbit Security the founders and maintainers of OpenXPKI offers a [RHEL package for enterprise](https://www.whiterabbitsecurity.com/produkte/openxpki/ "OpenXPKI offers a RHEL package for enterprise"), consider supporting them.
+##### Whiterabbit Security, the founders and maintainers of OpenXPKI, offers a [RHEL package for enterprise](https://www.whiterabbitsecurity.com/produkte/openxpki/ "OpenXPKI offers a RHEL package for enterprise"); consider supporting them.
 ------------
 This script aims to install [OpenXPKI](https://github.com/openxpki/openxpki "OpenXPKI") on RHEL with the built-in Security Policy configured for NIST 800-171, CMMC L3, or DISA STIG compliance, providing a FIPS 140-2 validated PKI solution.
 
@@ -12,11 +12,11 @@ Built and tested on:
 
 
 #### Perl Dependenices
-As many deps from RHEL/EPEL rpms as possible with what I couldnt find from CPAN. I struggled with this but the list I've compiled works.
-
+Took as many deps from RHEL/EPEL rpms as possible and the rest from CPAN. Struggled with this, but the list provided works.
+  
 
 #### Security Policies
-Default umask 027 causes some of the perl modules installed via CPAN or along with openxpki-core to have incorrect permissions.
+The default umask 027 causes some of the Perl modules installed via CPAN or along with openxpki-core to have incorrect permissions.
 
 
 #### FIPS mode
