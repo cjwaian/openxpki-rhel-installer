@@ -26,6 +26,8 @@ The default umask 027 causes some of the Perl modules installed via CPAN or alon
 
 
 #### SELinux
+`setsebool -P httpd_can_network_connect on`
+
 |type|file|
 | :------------ | :------------ |
 |httpd_sys_script_ra_t|webui.log|
