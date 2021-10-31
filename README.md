@@ -1,5 +1,5 @@
 # OpenXPKI Installer for RHEL
-##### Whiterabbit Security, the founders and maintainers of OpenXPKI, offers a [RHEL package for enterprise](https://www.whiterabbitsecurity.com/produkte/openxpki/ "OpenXPKI offers a RHEL package for enterprise"); consider supporting them.
+##### White Rabbit Security GmbH, the founders and maintainers of OpenXPKI, offers a [RHEL package for enterprise](https://www.whiterabbitsecurity.com/produkte/openxpki/); consider supporting them.
 ------------
 This script aims to install [OpenXPKI](https://github.com/openxpki/openxpki "OpenXPKI") on RHEL with the built-in Security Policy configured for NIST 800-171, CMMC L3, or DISA STIG compliance, providing a FIPS 140-2 validated PKI solution.
 
@@ -20,7 +20,7 @@ The default umask 027 causes some of the Perl modules installed via CPAN or alon
 
 
 #### FIPS mode
-[LibSCEP](https://github.com/Javex/libscep.git "LibSCEP") and the [Crypt::LibSCEP](https://metacpan.org/pod/Crypt::LibSCEP "Crypt::LibSCEP") does not pass tests, due to FIPS mode:
+[LibSCEP](https://github.com/Javex/libscep.git) and the [Crypt::LibSCEP](https://metacpan.org/pod/Crypt::LibSCEP) do not pass tests due to FIPS mode:
 
 `digital envelope routines:EVP_DigestInit_ex:disabled for FIPS:crypto/evp/digest.c`
 
