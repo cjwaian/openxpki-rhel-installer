@@ -47,7 +47,7 @@ else
     sed -i "s~pid_file\:.*$~pid_file: ${OPENXPKI_PID}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
     sed -i "s~stderr\:.*$~stderr: ${OPENXPKI_LOG_DIR}/stderr.log~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
     sed -i "s~directory\:.*$~directory: ${SESSION_DIR}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
-    sed -i "s~socket_file\:.*$~socket_file: ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
+    sed -i "s~socket_file\:.*$~socket_file: ${SOCKET_FILE}.fake~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
     # The openxpkictl daemon deletes and creates the .socket file on start/stop
     # prevent this behavior by giving it the incorrect path in server.yaml
 
