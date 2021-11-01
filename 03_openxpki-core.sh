@@ -89,16 +89,18 @@ chmod -f 644 $OPENXPKI_PID;
 mkdir -p $SOCKET_DIR;
 chown -f $OPENXPKI_USR:$OPENXPKI_USR $SOCKET_DIR;
 chmod -f 750 $SOCKET_DIR;
+# Apply the SELinux permissions to the directory, the openxpki.socket file itself is deleted/created on
+# openxpkictl start/stop so we have to apply it here so that the contents inherit the SELinux Settings
 semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_DIR;
 restorecon $SOCKET_DIR;
 
 touch $SOCKET_FILE;
 chown -f $OPENXPKI_USR:$OPENXPKI_USR $SOCKET_FILE;
 chmod -f 770 $SOCKET_FILE;
-semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_FILE;
-restorecon $SOCKET_FILE;
-# The openxpkictl daemon deletes and creates the .socket file on start/stop
-# this messes up SELinux
+# Apply the SELinux permissions to the directory, the openxpki.socket file itself is deleted/created on
+# openxpkictl start/stop so we have to apply it here so that the contents inherit the SELinux Settings
+# semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_FILE;
+# restorecon $SOCKET_FILE;
 
 
 # Exiting
