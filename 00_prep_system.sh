@@ -77,42 +77,6 @@ fi
 # SELINUX
 setsebool -P httpd_can_network_connect on;
 
-
-semanage fcontext -a -t httpd_sys_content_t "${WEB_ROOT_DIR}(/.*)?";
-restorecon $WEB_ROOT_DIR;
-
-semanage fcontext -a -t httpd_sys_content_t "${WEB_OPENXPKI_DIR}(/.*)?";
-restorecon $WEB_OPENXPKI_DIR;
-
-semanage fcontext -a -t httpd_sys_content_t "${WEB_STATIC_DIR}(/.*)?";
-restorecon $WEB_STATIC_DIR;
-
-semanage fcontext -a -t httpd_sys_content_t "${OPENXPKI_PUBLISH_DIR}(/.*)?";
-restorecon $OPENXPKI_PUBLISH_DIR;
-
-semanage fcontext -a -t httpd_sys_script_exec_t "${CGI_BIN_DIR}(/.*)?";
-restorecon $CGI_BIN_DIR;
-
-
-# semanage fcontext -a -t httpd_sys_script_ra_t $OPENXPKI_LOG_DIR/webui.log;
-semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/webui.log;
-restorecon $OPENXPKI_LOG_DIR/webui.log;
-
-semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/rpc.log;
-restorecon $OPENXPKI_LOG_DIR/rpc.log;
-
-semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/scep.log;
-restorecon $OPENXPKI_LOG_DIR/scep.log;
-
-semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/soap.log;
-restorecon $OPENXPKI_LOG_DIR/soap.log;
-
-
-semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_FILE
-restorecon $SOCKET_FILE;
-
-
-
 ## For Debugging SELinux issues
 # semanage fcontext -l
 
