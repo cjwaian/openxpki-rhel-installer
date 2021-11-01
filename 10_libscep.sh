@@ -17,8 +17,8 @@ dnf -y install cmake pkgconf-pkg-config check check-devel uriparser uriparser-de
 # Install LibSCEP
 # git clone https://github.com/Javex/libscep.git --branch=develop $LIBSCEP_SRC;
 git clone https://github.com/openxpki/libscep.git  $LIBSCEP_SRC;
-mkdir $LIBSCEP_SRC/build;
-cd $LIBSCEP_SRC/build;
+mkdir -p $WORK_DIR/$LIBSCEP_SRC/build;
+cd $WORK_DIR/$LIBSCEP_SRC/build;
 cmake -D LIB64=1 -D CMAKE_INSTALL_PREFIX=/usr ..;
 make && make install;
 
