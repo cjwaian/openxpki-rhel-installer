@@ -91,15 +91,15 @@ chown -f $OPENXPKI_USR:$OPENXPKI_USR /var/openxpki;
 chmod -f 755 /var/openxpki;
 
 # Socket
-mkdir -p /var/openxpki/socket;
-chown -f $OPENXPKI_USR:$OPENXPKI_USR
-chmod -f 755 /var/openxpki/socket;
+mkdir -p $SOCKET_DIR;
+chown -f $OPENXPKI_USR:$OPENXPKI_USR $SOCKET_DIR;
+chmod -f 755 $SOCKET_DIR;
 touch $SOCKET_FILE;
 chown -f $OPENXPKI_USR:$OPENXPKI_USR $SOCKET_FILE;
 chmod -f 770 $SOCKET_FILE;
 
-semanage fcontext -a -t httpd_sys_rw_content_t /var/openxpki/socket;
-restorecon /var/openxpki/socket;
+semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_DIR;
+restorecon $SOCKET_DIR;
 semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_FILE;
 restorecon $SOCKET_FILE;
 # The openxpkictl daemon deletes and creates the .socket file on start/stop
