@@ -16,13 +16,13 @@ git clone https://github.com/openxpki/openxpki.git --branch=master $OPENXPKI_SRC
 
 
 # Install Openxpki Core
-cd $OPENXPKI_SRC_DIR/core/server;
+cd $WORK_DIR/$OPENXPKI_SRC_DIR/core/server;
 perl -w ./Makefile.PL INSTALLSITESCRIPT=$INSTALLSITESCRIPT;
 make;
 make install;
 
 # Install Openxpki I18N (localization)
-cd $OPENXPKI_SRC_DIR/core/i18n
+cd $WORK_DIR/$OPENXPKI_SRC_DIR/core/i18n
 perl -w ./Makefile.PL;
 make scan;
 make;
