@@ -36,3 +36,5 @@ Keep SELinux enabled but configure to permit http & fcgi [to write to log file](
 |httpd_sys_ra_content_t|scep.log|
 |httpd_sys_ra_content_t|soap.log|
 |httpd_sys_rw_content_t|openxpki.socket|
+
+The openxpki backend daemon deletes/creates the openxpki.socket on start/stop causing the SELinux permission to break (requiring `restorecon`). Apply the SELinux permissions to the directory instead so that the new socket file inherits the SELinux settings.
