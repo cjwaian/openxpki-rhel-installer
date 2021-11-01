@@ -22,7 +22,7 @@ else
     echo "Downloading openxpki-config...";
     git clone https://github.com/openxpki/openxpki-config.git --branch=community $IMPORT_OPENXPKI_CONFIG_DIR;
     # Insert version info and configure some I18N stuff
-    cd $IMPORT_OPENXPKI_CONFIG_DIR;
+    cd $WORK_DIR/$IMPORT_OPENXPKI_CONFIG_DIR;
     make;
     cd ..;
 
