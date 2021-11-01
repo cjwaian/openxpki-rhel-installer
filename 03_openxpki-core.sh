@@ -95,7 +95,7 @@ touch $SOCKET_FILE;
 chown -f $OPENXPKI_USR:$OPENXPKI_USR $SOCKET_FILE;
 chmod -f 770 $SOCKET_FILE;
 
-semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_FILE
+semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_FILE;
 restorecon $SOCKET_FILE;
 
 
