@@ -14,7 +14,7 @@ echo "Starting to set up openxpki-cgi-session-driver..";
 
 
 # Install OpenXPKI CGI Sesssion Driver
-cd $OPENXPKI_SRC_DIR/core/server/CGI_Session_Driver;
+cd $WORK_DIR//$OPENXPKI_SRC_DIR/core/server/CGI_Session_Driver;
 make;
 make install;
 
