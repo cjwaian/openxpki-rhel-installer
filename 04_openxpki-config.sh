@@ -95,21 +95,28 @@ else
 
     # openxpki/est
     cp -R $IMPORT_OPENXPKI_CONFIG_DIR/est $OPENXPKI_CONFIG_DIR/est/;
+    sed -i "s~^socket.*$~socket = ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/est/default.conf;
 
     # openxpki/rpc
     cp -R $IMPORT_OPENXPKI_CONFIG_DIR/rpc $OPENXPKI_CONFIG_DIR/rpc/;
+    sed -i "s~^socket.*$~socket = ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/rpc/public.conf;
+    sed -i "s~^socket.*$~socket = ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/rpc/enroll.conf;
+    sed -i "s~^socket.*$~socket = ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/rpc/default.conf;
 
     # openxpki/scep
     cp -R $IMPORT_OPENXPKI_CONFIG_DIR/scep $OPENXPKI_CONFIG_DIR/scep/;
+    sed -i "s~^socket.*$~socket = ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/scep/default.conf;
     sed -i "s/^realm=.*$/realm=${REALM}/" $OPENXPKI_CONFIG_DIR/scep/default.conf;
     sed -i "s/value\:\sSecretChallenge.*$/value: ${SCEP_CHALLENGE}/" $OPENXPKI_CONFIG_DIR/config.d/realm/$REALM/scep/generic.yaml;
     sed -i "s/^hmac\:.*$/hmac: ${HMAC_SECRET}/" $OPENXPKI_CONFIG_DIR/config.d/realm/$REALM/scep/generic.yaml;
 
     # openxpki/soap
     cp -R $IMPORT_OPENXPKI_CONFIG_DIR/soap $OPENXPKI_CONFIG_DIR/soap/;
+    sed -i "s~^socket.*$~socket = ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/soap/default.conf;
 
     # openxpki/webui
     cp -R $IMPORT_OPENXPKI_CONFIG_DIR/webui $OPENXPKI_CONFIG_DIR/webui/;
+    sed -i "s~^socket.*$~socket = ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/webui/default.conf;
     sed -i "s/^NameSpace\s\=\s.*$/NameSpace = ${DB_NAME}/" $OPENXPKI_CONFIG_DIR/webui/default.conf;
     sed -i "s/^User\s\=\s.*$/User = ${DB_SESSION_USER_NAME}/" $OPENXPKI_CONFIG_DIR/webui/default.conf;
     sed -i "s/^Password\s\=\s.*$/Password = ${DB_SESSION_USER_PASS}/" $OPENXPKI_CONFIG_DIR/webui/default.conf;
