@@ -26,12 +26,9 @@ LibSCEP and the Crypt::LibSCEP [do not pass tests](10_libscep.sh) due to FIPS mo
 
 
 #### SELinux
-Keep SELinux enabled but configure to permit http & fcgi [to write to log file](08_logging.sh#L44) and [socket](03_openxpki-core.sh#L98).
+Allow [HTTP/S](00_prep_system.sh#L78): `setsebool -P httpd_can_network_connect on`.
 
-[HTTP/S](00_prep_system.sh#L78):
- `setsebool -P httpd_can_network_connect on`
- 
- Log & Socket:
+Keep SELinux enabled but configure to permit http & fcgi [to write to log file](08_logging.sh#L44) and [socket](03_openxpki-core.sh#L98).
 |type|file|
 | :------------ | :------------ |
 |httpd_sys_script_ra_t|webui.log|
