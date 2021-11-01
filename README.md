@@ -24,6 +24,8 @@ LibSCEP and the Crypt::LibSCEP [do not pass tests](10_libscep.sh) due to FIPS mo
 
 `digital envelope routines:EVP_DigestInit_ex:disabled for FIPS:crypto/evp/digest.c`
 
+However scep is completely functional with 3DES & SHA256.
+
 
 #### SELinux
 Allow [HTTP/S](00_prep_system.sh#L78): `setsebool -P httpd_can_network_connect on`.
