@@ -44,10 +44,12 @@ else
     # system/server.yaml
     sed -i "s~log4perl\:.*$~log4perl: ${OPENXPKI_CONFIG_DIR}/log.conf~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
     sed -i "s~group\:.*$~group: ${OPENXPKI_USR}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
-    sed -i "s~socket_file\:.*$~socket_file: ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
     sed -i "s~pid_file\:.*$~pid_file: ${OPENXPKI_PID}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
     sed -i "s~stderr\:.*$~stderr: ${OPENXPKI_LOG_DIR}/stderr.log~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
     sed -i "s~directory\:.*$~directory: ${SESSION_DIR}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
+    sed -i "s~socket_file\:.*$~socket_file: ${SOCKET_FILE}~" $OPENXPKI_CONFIG_DIR/config.d/system/server.yaml;
+    # The openxpkictl daemon deletes and creates the .socket file on start/stop
+    # prevent this behavior by giving it the incorrect path in server.yaml
 
     # Update openxpki/system/realms.yaml to reference our realm
     sed -i "s/^democa/$REALM/" $OPENXPKI_CONFIG_DIR/config.d/system/realms.yaml;
