@@ -98,7 +98,7 @@ chmod -f 770 $SOCKET_FILE;
 semanage fcontext -a -t httpd_sys_rw_content_t $SOCKET_FILE;
 restorecon $SOCKET_FILE;
 # The openxpkictl daemon deletes and creates the .socket file on start/stop
-# prevent this behavior by giving it the incorrect path in server.yaml
+# this messes up SELinux
 
 
 # Exiting
