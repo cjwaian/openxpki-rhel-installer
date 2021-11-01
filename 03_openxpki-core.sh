@@ -34,7 +34,7 @@ make install;
 useradd --system --no-create-home $OPENXPKI_USR;
 
 
-
+cd $WORK_DIR;
 ### Create Systemd Unit File openxpkid
 if [ ! -f $SYSTEMD_SERVICE_FILE ] ; then
     echo "Downloading Systemd openxpkid.service..";
