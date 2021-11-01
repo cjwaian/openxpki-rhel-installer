@@ -41,6 +41,20 @@ chown -f $APACHE_USER:$APACHE_USER $OPENXPKI_LOG_DIR/rpc.log;
 chmod -f 644 $OPENXPKI_LOG_DIR/rpc.log;
 
 
+# SELinux
+# semanage fcontext -a -t httpd_sys_script_ra_t $OPENXPKI_LOG_DIR/webui.log;
+semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/webui.log;
+restorecon $OPENXPKI_LOG_DIR/webui.log;
+
+semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/rpc.log;
+restorecon $OPENXPKI_LOG_DIR/rpc.log;
+
+semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/scep.log;
+restorecon $OPENXPKI_LOG_DIR/scep.log;
+
+semanage fcontext -a -t httpd_sys_ra_content_t $OPENXPKI_LOG_DIR/soap.log;
+restorecon $OPENXPKI_LOG_DIR/soap.log;
+
 
 # Exiting
 echo "Finished setting up logging directory..";
