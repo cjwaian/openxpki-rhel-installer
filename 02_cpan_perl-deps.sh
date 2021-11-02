@@ -35,7 +35,9 @@ cpanm -q -i CGI::Session;
 
 cpanm -q -i Proc::SafeExec;
 
-cpanm -q -i Git::PurePerl Test::utf8 IO::Digest;
+cpanm -q -i Test::utf8 IO::Digest;
+
+cpanm -q -i Git::PurePerl;
 
 cpanm -q -i Config::Merge Config::Versioned;
 
