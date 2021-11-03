@@ -45,8 +45,8 @@ WEB_SUBJECT="/C=${COUNTRY}/ST=${STATE}/L=${CITY}/O=${ORG}/CN=${WEB_CN}";
 
 
 
-# OpenXPKI default min for the endentity certificates is 6 months
-# if you set the CA lower than that it will error
+# Expiration for Issuer CA must be creater than $PROFILE_CERT_EXPIR set in the install.config
+# If the CA has a life shorter than a requested certificate you'll get an error:
 #   "ERROR Could not find token alias by group; __group__ => ca-signer"
 EXPIRE_DAYS=183;
 
