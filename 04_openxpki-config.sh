@@ -64,7 +64,7 @@ else
     cp -R $IMPORT_OPENXPKI_CONFIG_DIR/config.d/realm.tpl $OPENXPKI_CONFIG_DIR/config.d/realm/$REALM/;
     
     # Set certificate expiration date in realm/profile/*.yaml
-    sed -i "s~notafter\:.*$~notafter: +{$DEFAULT_CERT_EXPIRATION}~" $OPENXPKI_CONFIG_DIR/config.d/realm/$REALM/profile/*.yaml;
+    sed -i "s~notafter\:.*$~notafter: +{$PROFILE_CERT_EXPIR}~" $OPENXPKI_CONFIG_DIR/config.d/realm/$REALM/profile/*.yaml;
     # If the CA cert has an expiration that is lower than defined by these profiles, you'll get an error
     # ERROR Could not find token alias by group; __group__ => ca-signer
 
