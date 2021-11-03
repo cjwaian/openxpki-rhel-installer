@@ -58,7 +58,7 @@ fi
 
 
 # Haveged gives VM's extra entropy when generating crypto keys
-if [[ $(which haveged) != 'haveged' ]] ; then
+if [[ $(which haveged) != '' ]] ; then
     echo "Haveged is not installed. Exiting.";
     # Requires EPEL repo
     dnf -y install haveged;
