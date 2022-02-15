@@ -226,6 +226,9 @@ make_cnf () {
     #crlDistributionPoints  = ${ISSUER_CA_CRL_URI}
     #authorityInfoAccess    = caIssuers;${ISSUER_CA_CERT_URI}
     #authorityInfoAccess    = OCSP;URI:${ISSUER_CA_OCSP_URI}
+    
+    [ crl_ext ]
+    authorityKeyIdentifier=keyid:always,issuer:always
 
 EOL
 }
